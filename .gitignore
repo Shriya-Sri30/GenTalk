@@ -1,0 +1,6 @@
+app_files/
+.ipynb_checkpoints/
+*.ipynb
+untitled.txt
+.streamlit/secrets.toml
+untitled.py
