@@ -1,5 +1,6 @@
 import streamlit as st
 import google.generativeai as genai
+import datetime
 
 st.set_page_config(
     page_title="GenTalk",
@@ -21,12 +22,15 @@ for message in st.session_state.messages:
 prompt = st.chat_input("Type your message...")
 
 if prompt:
+    today = datetime.datetime.now().strftime("%d %B %Y")
+    prompt_with_date = f"Today's date is {today}.\n\n{prompt}"
+    
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.write(prompt)
     with st.chat_message("assistant"):
         with st.spinner("thinking..."):
-            response = model.generate_content(prompt)
+            response = model.generate_content(prompt_with_date)
             ai_response = response.text
             st.write(ai_response)
             st.session_state.messages.append({"role": "assistant", "content": ai_response})
