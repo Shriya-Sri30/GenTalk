@@ -6,7 +6,7 @@ st.set_page_config(
     page_icon="🤖"
 )
 
-genai.configure(api_key=st.secrets["AIzaSyBOvhvjJZwI_92N7mp_G8Hm_vv8_hESwlw"])
+genai.configure(api_key=st.secrets["AIzaSyBOvhvjJZwI_92N7mp_G8Hm_vv8_hESwlw"])"])
 model = genai.GenerativeModel("models/gemini-2.5-flash")
 
 st.title("GenTalk 🤖")
